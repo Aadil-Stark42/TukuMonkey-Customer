@@ -186,14 +186,13 @@ class CartSubScreenState extends State<CartSubScreen> {
                         child: cartDataModel.products![index].isMinusLoading ==
                                 false
                             ? Image.asset(
-                                imagePath + "ic_menus_fill.png",
+                                imagePath + "ic_minus.png",
                                 width: 20,
-                                height: 23,
-                                fit: BoxFit.fill,
+                                height: 20,
                               )
                             : SizedBox(
                                 width: 20,
-                                height: 23,
+                                height: 20,
                                 child: SizedBox(
                                   width: 12,
                                   height: 12,
@@ -214,39 +213,35 @@ class CartSubScreenState extends State<CartSubScreen> {
                       SizedBox(
                         width: 10,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4),
-                        child: InkWell(
-                          splashColor: greyColor2,
-                          onTap: () {
-                            setState(() {
-                              cartDataModel.products![index].isPlusLoading =
-                                  true;
-                            });
-                            AddOrRemoveProduct(
-                                cartDataModel.products![index].cartProductId
-                                    .toString(),
-                                "1",
-                                index);
-                          },
-                          child: cartDataModel.products![index].isPlusLoading ==
-                                  false
-                              ? Image.asset(
-                                  imagePath + "ic_plus.png",
-                                  width: 20,
-                                  height: 20,
-                                  fit: BoxFit.fill,
-                                )
-                              : SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                  child: SizedBox(
-                                    width: 12,
-                                    height: 12,
-                                    child: CircularProgressIndicator(
-                                        strokeWidth: 1, color: mainColor),
-                                  )),
-                        ),
+                      InkWell(
+                        splashColor: greyColor2,
+                        onTap: () {
+                          setState(() {
+                            cartDataModel.products![index].isPlusLoading = true;
+                          });
+                          AddOrRemoveProduct(
+                              cartDataModel.products![index].cartProductId
+                                  .toString(),
+                              "1",
+                              index);
+                        },
+                        child: cartDataModel.products![index].isPlusLoading ==
+                                false
+                            ? Image.asset(
+                                imagePath + "ic_plus.png",
+                                width: 20,
+                                height: 20,
+                                fit: BoxFit.fill,
+                              )
+                            : SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: SizedBox(
+                                  width: 12,
+                                  height: 12,
+                                  child: CircularProgressIndicator(
+                                      strokeWidth: 1, color: mainColor),
+                                )),
                       ),
                     ],
                   ),

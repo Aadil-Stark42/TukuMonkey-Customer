@@ -103,10 +103,13 @@ class SplashScreenState extends State<MySplashScreenPage> {
     return Container(
         width: double.maxFinite,
         height: double.maxFinite,
-        color: splashColor,
+        color: mainColor,
         child: Center(
-          child: Lottie.asset(
-            imagePath + 'gdsplash.json',
+          child: Image.asset(
+            imagePath + 'img_splash.png',
+            width: double.infinity,
+            height: double.infinity,
+            fit: BoxFit.cover,
           ),
         ));
   }
